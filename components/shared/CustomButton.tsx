@@ -17,14 +17,12 @@ const buttonStyles = cva("", {
       tertiary: "bg-tertiary",
     },
     size: {
-      default: ["text-sm", "p-3"],
-      sm: ["text-sm", "py-2", "px-4"],
-      lg: ["text-lg", "py-4", "px-4"],
+      sm: ["py-2", "px-4"],
+      lg: ["py-4", "px-4"],
     },
   },
   defaultVariants: {
     color: "primary",
-    size: "default",
   },
   compoundVariants: [
     {
@@ -37,13 +35,14 @@ const buttonStyles = cva("", {
 const textStyles = cva("", {
   variants: {
     variant: {
-      default: "text-white",
       outline: "text-black",
       text: "text-primary",
+      icon: "text-white",
     },
-  },
-  defaultVariants: {
-    variant: "default",
+    size: {
+      sm: "text-sm",
+      lg: "text-lg",
+    },
   },
 });
 
@@ -52,12 +51,13 @@ interface Props extends React.ComponentPropsWithoutRef<typeof Pressable>, Varian
   textClassName?: string;
 }
 
-const btnClassNames /* tw */ = "rounded-md active:opacity-90";
+const baseButtonClasses /* tw */ = "p-3 rounded-md active:opacity-90";
+const baseTextClasses /* tw */ = "text-white text-center font-work-medium";
 
 const CustomButton = forwardRef<React.ElementRef<typeof Pressable>, Props>(
   ({ children, variant, color = "primary", size, className, textClassName, ...restProps }, ref) => {
-    const classNames = cn(btnClassNames, buttonStyles({ variant, color, size }), className);
-    const textClassNames = cn("text-center font-work-medium", textStyles({ variant }), textClassName);
+    const classNames = cn(baseButtonClasses, buttonStyles({ variant, color, size }), className);
+    const textClassNames = cn(baseTextClasses, textStyles({ variant, size }), textClassName);
 
     return (
       <Pressable ref={ref} className={classNames} {...restProps}>
