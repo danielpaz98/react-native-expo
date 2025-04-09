@@ -1,9 +1,10 @@
+import { useEffect } from "react";
 // PLUGINS
 import { SplashScreen, Slot } from "expo-router";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { useFonts } from "expo-font";
 // GLOBAL STYLES
 import "./global.css";
-import { useEffect } from "react";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -22,5 +23,9 @@ export default function RootLayout() {
 
   if (!loaded && !error) return null;
 
-  return <Slot />;
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Slot />
+    </GestureHandlerRootView>
+  );
 }

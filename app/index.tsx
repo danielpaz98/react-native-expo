@@ -1,8 +1,8 @@
-import { Link, Redirect } from "expo-router";
+import { Link, Redirect, type RelativePathString } from "expo-router";
 import { View, Text, SafeAreaView } from "react-native";
 
 export default function App() {
-  return <Redirect href="/tabs" />;
+  return <Redirect href={`/drawer` as RelativePathString} />;
 
   return (
     <SafeAreaView>
@@ -13,7 +13,7 @@ export default function App() {
         <Text className="text-xl text-tertiary">Hello World</Text>
       </View>
 
-      <Link href="/products">
+      <Link href="/tabs/(stack)/products">
         <Text className="text-2xl font-work-medium text-secondary-100">Products</Text>
       </Link>
     </SafeAreaView>
