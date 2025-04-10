@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView } from "react-native";
+import { View, SafeAreaView } from "react-native";
 // PLUGINS
 import { Link } from "expo-router";
 // COMPONENTS
@@ -8,20 +8,16 @@ export default function HomeScreen() {
   return (
     <SafeAreaView>
       <View className="flex-col gap-2 px-10 mt-5">
-        <Link href="/tabs/(stack)/products" asChild>
+        <Link href="/products" asChild>
           <CustomButton>Productos</CustomButton>
         </Link>
 
-        <Link href="/tabs/(stack)/profile" asChild>
+        <Link href="/profile" asChild>
           <CustomButton color="secondary">Perfil</CustomButton>
         </Link>
 
-        <Link href="/tabs/(stack)/settings" asChild>
+        <Link href="/settings" asChild>
           <CustomButton color="tertiary">Ajustes</CustomButton>
-        </Link>
-
-        <Link href="/tabs/(stack)/products" asChild>
-          <CustomButton variant="text">Productos</CustomButton>
         </Link>
       </View>
     </SafeAreaView>

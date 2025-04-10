@@ -19,7 +19,7 @@ export default function ProductsScreen() {
 
             <View className="flex flex-row items-center justify-between">
               <Text className="text-xl font-work-black">$ {item.price}</Text>
-              <Link href={`/tabs/(stack)/products/${item.id}`} asChild>
+              <Link href={`/products/${item.id}`} asChild>
                 <CustomButton variant="text">Ver detalles</CustomButton>
               </Link>
             </View>

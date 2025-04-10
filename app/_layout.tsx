@@ -24,7 +24,7 @@ export default function RootLayout() {
   if (!loaded && !error) return null;
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView className="flex-1">
       <Slot />
     </GestureHandlerRootView>
   );
