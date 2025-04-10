@@ -1,7 +1,7 @@
 // PLUGINS
-import { Stack, useNavigation } from "expo-router";
+import { router, Stack, useNavigation } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { DrawerActions, StackActions } from "@react-navigation/native";
+import { DrawerActions } from "@react-navigation/native";
 // COMPONENTS
 import { CustomButton } from "@/components/shared";
 
@@ -9,7 +9,7 @@ export default function StackLayout() {
   const navigation = useNavigation();
 
   const onHeaderLeftClick = (canGoBack: boolean | undefined) => {
-    if (canGoBack) return navigation.dispatch(StackActions.pop());
+    if (canGoBack) return router.back();
 
     navigation.dispatch(DrawerActions.toggleDrawer());
   };
