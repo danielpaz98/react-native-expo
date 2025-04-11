@@ -1,0 +1,10 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    "(?:clsx|twMerge|cn|class[Nn]ames)\\([`'\"]([^`'\"]*)",
+    ["(?:class[Nn]ames|Classes|Class|Styles|Style) \\=([^;]*);", "[`'\"]([^`'\"]*)[`'\"]"],
+    ["/\\*\\s?tw\\s?\\*/ ([^;]*);", "[`'\"]([^`'\"]*)[`'\"]"]
+  ]
+}
