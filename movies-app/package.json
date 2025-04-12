@@ -15,6 +15,7 @@
     "@legendapp/list": "^1.0.0-beta.24",
     "@react-navigation/native": "^7.0.3",
     "@roninoss/icons": "^0.0.4",
+    "axios": "^1.8.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "expo": "^52.0.44",
