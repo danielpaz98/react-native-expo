@@ -3,15 +3,18 @@
   "projectName": "movies-app",
   "packages": [
     {
-      "name": "react-navigation",
+      "name": "expo-router",
       "type": "navigation",
       "options": {
         "type": "stack"
       }
     },
     {
-      "name": "nativewind",
-      "type": "styling"
+      "name": "nativewindui",
+      "type": "styling",
+      "options": {
+        "selectedComponents": ["text"]
+      }
     }
   ],
   "flags": {

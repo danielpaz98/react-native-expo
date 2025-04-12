@@ -3,19 +3,21 @@
     "name": "movies-app",
     "slug": "movies-app",
     "version": "1.0.0",
+    "scheme": "movies-app",
     "newArchEnabled": true,
-    "scheme": "myapp",
     "web": {
+      "bundler": "metro",
+      "output": "static",
       "favicon": "./assets/favicon.png"
     },
+    "plugins": ["expo-router"],
     "experiments": {
-      "tsconfigPaths": true,
-      "typedRoutes": true
+      "typedRoutes": true,
+      "tsconfigPaths": true
     },
-    "plugins": [],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
