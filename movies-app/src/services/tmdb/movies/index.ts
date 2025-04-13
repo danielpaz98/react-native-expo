@@ -28,3 +28,15 @@ export const fetchPopularMovies = async () => {
     throw error;
   }
 };
+
+export const fetchTopRatedMovies = async () => {
+  try {
+    const { data } = await movieClient.get<MovieDBResponse>("/top_rated");
+    const movies = data.results.map(mapMovieFromTMDB);
+
+    return movies;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
