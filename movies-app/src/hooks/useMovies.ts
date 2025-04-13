@@ -2,7 +2,12 @@
 import { useQuery } from "@tanstack/react-query";
 
 // SERVICES
-import { fetchNowPlaying, fetchPopularMovies, fetchTopRatedMovies } from "@/services/tmdb/movies";
+import {
+  fetchNowPlaying,
+  fetchPopularMovies,
+  fetchTopRatedMovies,
+  fetchUpcomingMovies,
+} from "@/services/tmdb/movies";
 
 const staleTime = 1000 * 60 * 60 * 24; // 24 hours
 
@@ -25,5 +30,11 @@ export const useMovies = () => {
     staleTime,
   });
 
-  return { nowPlayingQuery, popularQuery, topRatedQuery };
+  const upcomingQuery = useQuery({
+    queryKey: ["movies", "upcoming"],
+    queryFn: fetchUpcomingMovies,
+    staleTime,
+  });
+
+  return { nowPlayingQuery, popularQuery, topRatedQuery, upcomingQuery };
 };
