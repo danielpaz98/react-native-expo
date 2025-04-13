@@ -1,4 +1,4 @@
-import { View, ActivityIndicator, ScrollView } from "react-native";
+import { View, ActivityIndicator, ScrollView, Text } from "react-native";
 // PLUGINS
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -22,7 +22,7 @@ export default function HomeScreen() {
   return (
     <ScrollView>
       <SafeAreaView className="pb-10 pt-2">
-        <Row title="Movies App">
+        <Row title="Estrenos">
           <MovieCarousel movies={nowPlayingQuery.data ?? []} />
         </Row>
 
