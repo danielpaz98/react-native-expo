@@ -1,4 +1,4 @@
-import { View, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator, ScrollView } from "react-native";
 // PLUGINS
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -20,22 +20,24 @@ export default function HomeScreen() {
   }
 
   return (
-    <SafeAreaView className="mt-2">
-      <Row title="Movies App">
-        <MovieCarousel movies={nowPlayingQuery.data ?? []} />
-      </Row>
+    <ScrollView>
+      <SafeAreaView className="pb-10 pt-2">
+        <Row title="Movies App">
+          <MovieCarousel movies={nowPlayingQuery.data ?? []} />
+        </Row>
 
-      <Row title="Populares" titleClassName="mb-4">
-        <MoviePosterList movies={popularQuery.data ?? []} />
-      </Row>
+        <Row title="Populares" titleClassName="mb-4">
+          <MoviePosterList movies={popularQuery.data ?? []} />
+        </Row>
 
-      <Row title="Mejor calificadas" titleClassName="my-4">
-        <MoviePosterList movies={topRatedQuery.data ?? []} />
-      </Row>
+        <Row title="Mejor calificadas" titleClassName="my-4">
+          <MoviePosterList movies={topRatedQuery.data ?? []} />
+        </Row>
 
-      <Row title="Próximamente en cines" titleClassName="my-4">
-        <MoviePosterList movies={upcomingQuery.data ?? []} />
-      </Row>
-    </SafeAreaView>
+        <Row title="Próximamente en cines" titleClassName="my-4">
+          <MoviePosterList movies={upcomingQuery.data ?? []} />
+        </Row>
+      </SafeAreaView>
+    </ScrollView>
   );
 }
