@@ -1,4 +1,4 @@
-import { View, ActivityIndicator, ScrollView, Text } from "react-native";
+import { View, ActivityIndicator, ScrollView } from "react-native";
 // PLUGINS
 import { SafeAreaView } from "react-native-safe-area-context";
 
