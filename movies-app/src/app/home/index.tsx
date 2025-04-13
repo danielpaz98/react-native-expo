@@ -4,12 +4,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 // COMPONENTS
 import { Row } from "@/components";
-import { MovieCarousel } from "@/components/movie";
+import { MovieCarousel, MoviePosterList } from "@/components/movie";
 // HOOKS
 import { useMovies } from "@/hooks/useMovies";
 
 export default function HomeScreen() {
-  const { nowPlayingQuery } = useMovies();
+  const { nowPlayingQuery, popularQuery } = useMovies();
 
   if (nowPlayingQuery.isLoading) {
     return (
@@ -23,6 +23,10 @@ export default function HomeScreen() {
     <SafeAreaView className="mt-2">
       <Row title="Movies App">
         <MovieCarousel movies={nowPlayingQuery.data ?? []} />
+      </Row>
+
+      <Row title="Populares" titleClassName="mb-4">
+        <MoviePosterList movies={popularQuery.data ?? []} />
       </Row>
     </SafeAreaView>
   );
