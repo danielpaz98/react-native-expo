@@ -40,3 +40,15 @@ export const fetchTopRatedMovies = async () => {
     throw error;
   }
 };
+
+export const fetchUpcomingMovies = async () => {
+  try {
+    const { data } = await movieClient.get<MovieDBResponse>("/upcoming");
+    const movies = data.results.map(mapMovieFromTMDB);
+
+    return movies;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
