@@ -16,3 +16,15 @@ export const fetchNowPlaying = async () => {
     throw error;
   }
 };
+
+export const fetchPopularMovies = async () => {
+  try {
+    const { data } = await movieClient.get<MovieDBResponse>("/popular");
+    const movies = data.results.map(mapMovieFromTMDB);
+
+    return movies;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
