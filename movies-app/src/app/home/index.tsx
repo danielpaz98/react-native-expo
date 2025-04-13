@@ -9,7 +9,7 @@ import { MovieCarousel, MoviePosterList } from "@/components/movie";
 import { useMovies } from "@/hooks/useMovies";
 
 export default function HomeScreen() {
-  const { nowPlayingQuery, popularQuery } = useMovies();
+  const { nowPlayingQuery, popularQuery, topRatedQuery } = useMovies();
 
   if (nowPlayingQuery.isLoading) {
     return (
@@ -27,6 +27,10 @@ export default function HomeScreen() {
 
       <Row title="Populares" titleClassName="mb-4">
         <MoviePosterList movies={popularQuery.data ?? []} />
+      </Row>
+
+      <Row title="Mejor calificadas" titleClassName="my-4">
+        <MoviePosterList movies={topRatedQuery.data ?? []} />
       </Row>
     </SafeAreaView>
   );
