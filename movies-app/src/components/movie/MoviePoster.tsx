@@ -5,9 +5,9 @@ import type { Movie } from "@/models/movie";
 // UTILS
 import { cn } from "@/utils";
 
-type MoviePoster = Pick<Movie, "id" | "poster">;
+type TMoviePoster = Pick<Movie, "id" | "poster">;
 
-interface Props extends Omit<React.ComponentPropsWithoutRef<typeof Pressable>, "id">, MoviePoster {
+interface Props extends Omit<React.ComponentPropsWithoutRef<typeof Pressable>, "id">, TMoviePoster {
   imageClassName?: string;
   small?: boolean;
 }
@@ -15,7 +15,7 @@ interface Props extends Omit<React.ComponentPropsWithoutRef<typeof Pressable>, "
 const baseClasses = "active:opacity-90 px-2";
 const baseImageClasses = "rounded-2xl shadow-lg w-[150px] h-[250px]";
 
-export default function PosterCard({ className, imageClassName, small = false, poster }: Props) {
+export default function MoviePoster({ className, imageClassName, small = false, poster }: Props) {
   const classNames = cn(baseClasses, className);
   const imageClassNames = cn(baseImageClasses, { "w-[85px] h-[130px]": small }, imageClassName);
 
