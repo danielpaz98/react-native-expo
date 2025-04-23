@@ -6,7 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Row } from "@/components";
 import { MovieCarousel, MoviePosterList } from "@/components/movie";
 // HOOKS
-import { useMovies } from "@/hooks/useMovies";
+import { useMovies } from "@/hooks";
 
 export default function HomeScreen() {
   const { nowPlayingQuery, popularQuery, topRatedQuery, upcomingQuery } = useMovies();
