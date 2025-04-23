@@ -1,12 +1,12 @@
 export interface MoviesDBResponse {
-  dates: MovieDBDates;
+  dates: MoviesDBDates;
   page: number;
   results: MoviesDBResult[];
   total_pages: number;
   total_results: number;
 }
 
-export interface MovieDBDates {
+export interface MoviesDBDates {
   maximum: Date;
   minimum: Date;
 }
@@ -16,7 +16,7 @@ export interface MoviesDBResult {
   backdrop_path: string;
   genre_ids: number[];
   id: number;
-  original_language: MovieDBOriginalLanguage;
+  original_language: MoviesDBOriginalLanguage;
   original_title: string;
   overview: string;
   popularity: number;
@@ -28,7 +28,7 @@ export interface MoviesDBResult {
   vote_count: number;
 }
 
-export enum MovieDBOriginalLanguage {
+export enum MoviesDBOriginalLanguage {
   Da = "da",
   En = "en",
   Fr = "fr",
