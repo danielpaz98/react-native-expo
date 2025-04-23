@@ -34,7 +34,7 @@ export default function HomeScreen() {
           <MoviePosterList movies={topRatedQuery.data ?? []} />
         </Row>
 
-        <Row title="Próximamente en cines" titleClassName="my-4">
+        <Row title="Próximamente" titleClassName="my-4">
           <MoviePosterList movies={upcomingQuery.data ?? []} />
         </Row>
       </SafeAreaView>
