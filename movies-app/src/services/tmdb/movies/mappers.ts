@@ -1,8 +1,8 @@
 // TYPES
 import type { Movie } from "@/models/movie";
-import type { MovieDBResult } from "@/services/tmdb/movies/types";
+import type { MoviesDBResult } from "@/services/tmdb/movies/types";
 
-export const mapMovieFromTMDB = (movie: MovieDBResult): Movie => {
+export const mapMovieFromTMDB = (movie: MoviesDBResult): Movie => {
   return {
     id: movie.id,
     title: movie.title,

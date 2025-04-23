@@ -1,7 +1,7 @@
-export interface MovieDBResponse {
+export interface MoviesDBResponse {
   dates: MovieDBDates;
   page: number;
-  results: MovieDBResult[];
+  results: MoviesDBResult[];
   total_pages: number;
   total_results: number;
 }
@@ -11,7 +11,7 @@ export interface MovieDBDates {
   minimum: Date;
 }
 
-export interface MovieDBResult {
+export interface MoviesDBResult {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];

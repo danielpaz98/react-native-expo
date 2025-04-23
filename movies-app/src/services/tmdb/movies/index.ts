@@ -3,7 +3,7 @@ import { movieClient } from "./client";
 // MAPPERS
 import { mapMovieFromTMDB } from "./mappers";
 // TYPES
-import type { MovieDBResponse } from "./types";
+import type { MoviesDBResponse } from "./types";
 
 interface Pagination {
   page?: number;
@@ -12,7 +12,7 @@ interface Pagination {
 
 export const fetchNowPlaying = async () => {
   try {
-    const { data } = await movieClient.get<MovieDBResponse>("/now_playing");
+    const { data } = await movieClient.get<MoviesDBResponse>("/now_playing");
     const movies = data.results.map(mapMovieFromTMDB);
 
     return movies;
@@ -24,7 +24,7 @@ export const fetchNowPlaying = async () => {
 
 export const fetchPopularMovies = async () => {
   try {
-    const { data } = await movieClient.get<MovieDBResponse>("/popular");
+    const { data } = await movieClient.get<MoviesDBResponse>("/popular");
     const movies = data.results.map(mapMovieFromTMDB);
 
     return movies;
@@ -36,7 +36,7 @@ export const fetchPopularMovies = async () => {
 
 export const fetchTopRatedMovies = async ({ page = 1, limit = 10 }: Pagination) => {
   try {
-    const { data } = await movieClient.get<MovieDBResponse>("/top_rated", {
+    const { data } = await movieClient.get<MoviesDBResponse>("/top_rated", {
       params: { page, limit },
     });
     const movies = data.results.map(mapMovieFromTMDB);
@@ -50,7 +50,7 @@ export const fetchTopRatedMovies = async ({ page = 1, limit = 10 }: Pagination) 
 
 export const fetchUpcomingMovies = async () => {
   try {
-    const { data } = await movieClient.get<MovieDBResponse>("/upcoming");
+    const { data } = await movieClient.get<MoviesDBResponse>("/upcoming");
     const movies = data.results.map(mapMovieFromTMDB);
 
     return movies;
