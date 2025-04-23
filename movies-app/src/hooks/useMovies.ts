@@ -1,6 +1,8 @@
 // PLUGINS
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 
+// CONSTANTS
+import { STALE_TIME as staleTime } from "@/constants";
 // SERVICES
 import {
   fetchNowPlaying,
@@ -8,8 +10,6 @@ import {
   fetchTopRatedMovies,
   fetchUpcomingMovies,
 } from "@/services/tmdb/movies";
-
-const staleTime = 1000 * 60 * 60 * 24; // 24 hours
 
 export const useMovies = () => {
   const nowPlayingQuery = useQuery({
