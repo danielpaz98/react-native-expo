@@ -1,5 +1,5 @@
 // PLUGINS
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 
 // SERVICES
 import {
@@ -24,10 +24,12 @@ export const useMovies = () => {
     staleTime,
   });
 
-  const topRatedQuery = useQuery({
-    queryKey: ["movies", "top_rated"],
-    queryFn: fetchTopRatedMovies,
+  const topRatedQuery = useInfiniteQuery({
+    initialPageParam: 1,
     staleTime,
+    queryKey: ["movies", "top_rated"],
+    queryFn: ({ pageParam: page }) => fetchTopRatedMovies({ page }),
+    getNextPageParam: (_, pages) => pages.length + 1,
   });
 
   const upcomingQuery = useQuery({

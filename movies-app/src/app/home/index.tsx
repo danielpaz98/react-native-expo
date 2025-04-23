@@ -31,7 +31,10 @@ export default function HomeScreen() {
         </Row>
 
         <Row title="Mejor calificadas" titleClassName="my-4">
-          <MoviePosterList movies={topRatedQuery.data ?? []} />
+          <MoviePosterList
+            movies={topRatedQuery.data?.pages.flat() ?? []}
+            loadNextPage={topRatedQuery.fetchNextPage}
+          />
         </Row>
 
         <Row title="Próximamente" titleClassName="my-4">
