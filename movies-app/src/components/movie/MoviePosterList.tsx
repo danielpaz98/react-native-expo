@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import { useEffect, useRef } from "react";
 import { FlatList, type NativeScrollEvent, type NativeSyntheticEvent } from "react-native";
 
@@ -43,7 +44,11 @@ export default function MoviePosterList({ className, movies, loadNextPage }: Pro
       keyExtractor={(item, i) => `${item.id}-${i}`}
       className={cn(className)}
       showsHorizontalScrollIndicator={false}
-      renderItem={({ item }) => <MoviePoster id={item.id} poster={item.poster} small />}
+      renderItem={({ item }) => (
+        <Link asChild href={`/movie/${item.id}`}>
+          <MoviePoster id={item.id} poster={item.poster} small />
+        </Link>
+      )}
       onScroll={handleOnScroll}
     />
   );
