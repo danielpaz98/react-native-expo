@@ -34,7 +34,9 @@ export default function MovieDetailScreen({ movie, cast }: Props) {
 
       <View className="py-3">
         <Row className="mx-7" title="Sinopsis" titleClassName={baseTitleClasses}>
-          <Text className="text-gray-500">{movie.description}</Text>
+          <Text className="text-gray-500">
+            {!movie.description || movie.description === "" ? "Sin descripción" : movie.description}
+          </Text>
         </Row>
 
         <Row className="mx-7 mt-4" title="Presupuesto" titleClassName={baseTitleClasses}>
