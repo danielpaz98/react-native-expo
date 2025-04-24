@@ -1,9 +1,9 @@
 // CLIENTS
 import { movieClient } from "./client";
 // MAPPERS
-import { mapMoviesFromTMDB, mapMovieDetailsFromTMDB } from "./mappers";
+import { mapMoviesFromTMDB, mapMovieDetailsFromTMDB, mapMovieCastFromTMDB } from "./mappers";
 // TYPES
-import type { MoviesDBResponse, MovieDetailsDBResponse } from "./types";
+import type { MoviesDBResponse, MovieDetailsDBResponse, MovieDBCreditsResponse } from "./types";
 
 interface Pagination {
   page?: number;
@@ -64,9 +64,20 @@ export const fetchMovieDetailsById = async (id: number) => {
   try {
     const { data } = await movieClient.get<MovieDetailsDBResponse>(`/${id}`);
     const movie = mapMovieDetailsFromTMDB(data);
-    console.log(movie);
 
     return movie;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
+export const fetchMovieCast = async (movieId: number) => {
+  try {
+    const { data } = await movieClient.get<MovieDBCreditsResponse>(`/${movieId}/credits`);
+    const cast = data.cast.map(mapMovieCastFromTMDB);
+
+    return cast;
   } catch (error) {
     console.log(error);
     throw error;

@@ -12,6 +12,14 @@ export interface MovieDetails extends Movie {
   genres: string[];
   duration: number;
   budget: number;
+  languages: string[];
   originalTitle: string;
   productionCompanies: string[];
+}
+
+export interface MovieCast {
+  id: number;
+  name: string;
+  character: string;
+  avatar: string;
 }
