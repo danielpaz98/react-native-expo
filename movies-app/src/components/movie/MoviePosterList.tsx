@@ -1,14 +1,13 @@
 import { Link } from "expo-router";
 import { useEffect, useRef } from "react";
-import { FlatList, type NativeScrollEvent, type NativeSyntheticEvent } from "react-native";
+import { type NativeScrollEvent, type NativeSyntheticEvent } from "react-native";
 
 // COMPONENTS
 import MoviePoster from "./MoviePoster";
 
+import { HorizontalList } from "@/components";
 // MODELS
 import type { Movie } from "@/models/movie";
-// UTILS
-import { cn } from "@/utils";
 
 interface Props {
   className?: string;
@@ -38,12 +37,9 @@ export default function MoviePosterList({ className, movies, loadNextPage }: Pro
   }, [movies]);
 
   return (
-    <FlatList
-      horizontal
+    <HorizontalList
       data={movies}
-      keyExtractor={(item, i) => `${item.id}-${i}`}
-      className={cn(className)}
-      showsHorizontalScrollIndicator={false}
+      className={className}
       renderItem={({ item }) => (
         <Link asChild href={`/movie/${item.id}`}>
           <MoviePoster id={item.id} poster={item.poster} small />
