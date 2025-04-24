@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import { View, useWindowDimensions } from "react-native";
 // PLUGINS
 import ReanimatedCarousel from "react-native-reanimated-carousel";
@@ -23,7 +24,11 @@ export default function Carousel({ movies }: Props) {
         data={movies}
         mode="parallax"
         defaultIndex={1}
-        renderItem={({ item }) => <PosterCard id={item.id} poster={item.poster} />}
+        renderItem={({ item }) => (
+          <Link asChild href={`/movie/${item.id}`}>
+            <PosterCard id={item.id} poster={item.poster} />
+          </Link>
+        )}
         modeConfig={{ parallaxScrollingScale: 0.9, parallaxScrollingOffset: 50 }}
         style={{ width, height: 250, justifyContent: "center", alignItems: "center" }}
       />
