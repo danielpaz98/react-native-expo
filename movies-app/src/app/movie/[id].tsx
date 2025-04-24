@@ -1,16 +1,28 @@
 import { useLocalSearchParams } from "expo-router";
-import { View, Text } from "react-native";
+import { View, ActivityIndicator } from "react-native";
 
-import { fetchMovieDetailsById } from "@/services/tmdb/movies";
+// HOOKS
+import { useMovieDetails } from "@/hooks";
+// SCREENS
+import { MovieDetailScreen } from "@/screens";
 
 export default function MovieScreen() {
   const { id } = useLocalSearchParams();
+  const { movieDetailsQuery, movieCastQuery } = useMovieDetails(+id);
 
-  fetchMovieDetailsById(+id);
+  const isLoading =
+    movieDetailsQuery.isLoading ||
+    !movieDetailsQuery.data ||
+    movieCastQuery.isLoading ||
+    !movieCastQuery.data;
 
-  return (
-    <View>
-      <Text>MovieScreen</Text>
-    </View>
-  );
+  if (isLoading) {
+    return (
+      <View className="flex-1 items-center justify-center">
+        <ActivityIndicator color="purple" size={40} />
+      </View>
+    );
+  }
+
+  return <MovieDetailScreen movie={movieDetailsQuery.data} cast={movieCastQuery.data} />;
 }
