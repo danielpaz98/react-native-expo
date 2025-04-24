@@ -1,4 +1,3 @@
-import { router } from "expo-router";
 import { forwardRef } from "react";
 import { Pressable, Image } from "react-native";
 
