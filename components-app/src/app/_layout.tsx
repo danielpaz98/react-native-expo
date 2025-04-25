@@ -9,7 +9,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 // COMPONENTS
-import { ThemedView } from "@/components/shared";
+import { ThemedView, ThemedText } from "@/components/shared";
 // HOOKS
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { useThemeColor } from "@/hooks/useThemeColor";
@@ -35,7 +35,7 @@ export default function RootLayout() {
     <GestureHandlerRootView style={{ flex: 1, backgroundColor }}>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
         <ThemedView>
-          <Text className="text-3xl text-light-text dark:text-dark-text">Hello World</Text>
+          <ThemedText>Hello World</ThemedText>
         </ThemedView>
       </ThemeProvider>
     </GestureHandlerRootView>
