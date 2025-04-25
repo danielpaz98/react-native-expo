@@ -20,7 +20,7 @@ export default function App() {
         ))}
       </Menu>
 
-      <Menu className="mt-3">
+      <Menu className="mt-5">
         {uiMenuRoutes.map(({ icon, name, title }, index) => (
           <Link asChild key={name} href={name.split("/")[0] as Href}>
             <Menu.Item icon={icon} isFirst={index === 0} isLast={index === uiMenuRoutes.length - 1}>
@@ -30,7 +30,7 @@ export default function App() {
         ))}
       </Menu>
 
-      <Menu className="mt-3">
+      <Menu className="mt-5">
         {menuRoutes.map(({ icon, name, title }, index) => (
           <Link asChild key={name} href={name.split("/")[0] as Href}>
             <Menu.Item icon={icon} isFirst={index === 0} isLast={index === menuRoutes.length - 1}>
