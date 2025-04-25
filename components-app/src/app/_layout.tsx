@@ -43,7 +43,7 @@ export default function RootLayout() {
         >
           <Stack.Screen name="index" options={{ title: "" }} />
 
-          {allRoutes.map(({ icon, name, title }) => (
+          {allRoutes.map(({ name, title }) => (
             <Stack.Screen key={name} name={name} options={{ title }} />
           ))}
         </Stack>
