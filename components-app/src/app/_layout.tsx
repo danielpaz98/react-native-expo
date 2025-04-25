@@ -6,9 +6,10 @@ import "@/global.css";
 import "react-native-reanimated";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import { StatusBar } from "expo-status-bar";
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+// COMPONENTS
+import { ThemedView } from "@/components/shared";
 // HOOKS
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { useThemeColor } from "@/hooks/useThemeColor";
@@ -33,8 +34,9 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1, backgroundColor }}>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Text className="mt-10 text-3xl text-light-text dark:text-dark-text">Hello World</Text>
-        <StatusBar style="auto" />
+        <ThemedView>
+          <Text className="text-3xl text-light-text dark:text-dark-text">Hello World</Text>
+        </ThemedView>
       </ThemeProvider>
     </GestureHandlerRootView>
   );
