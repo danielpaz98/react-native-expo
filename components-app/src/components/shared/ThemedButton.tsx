@@ -1,14 +1,12 @@
 import { Text, Pressable } from "react-native";
-// PLUGINS
-import { type VariantProps } from "class-variance-authority";
 // UTILS
 import { cn } from "@/utils";
 // COMPONENTS
 import { ThemedText } from "@/components/shared";
 // VARIANTS
-import { textStyles } from "@/components/shared/ThemedText";
+import { textStyles, type TextVariants } from "@/components/shared/ThemedText";
 
-interface Props extends React.ComponentProps<typeof Pressable>, VariantProps<typeof textStyles> {
+interface Props extends React.ComponentProps<typeof Pressable>, TextVariants {
   children?: React.ReactNode;
   textClassName?: string;
 }
