@@ -5,7 +5,10 @@ import { cn } from "@/utils";
 type Props = React.ComponentProps<typeof TextInput>;
 
 export default function ThemedTextInput({ className, ...restProps }: Props) {
-  const classNames = cn("p-2 text-black dark:text-white", className);
+  const classNames = cn(
+    "text-black dark:text-white bg-white dark:bg-black/10 rounded-md p-3 shadow-black/5",
+    className,
+  );
 
   return <TextInput placeholderTextColor="grey" className={classNames} {...restProps} />;
 }
