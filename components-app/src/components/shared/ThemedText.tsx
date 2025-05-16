@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 // UTILS
 import { cn } from "@/utils";
 
-const textStyles = cva("text-base text-light-text dark:text-dark-text", {
+export const textStyles = cva("text-base text-light-text dark:text-dark-text", {
   variants: {
     size: {
       h1: "text-3xl",
@@ -20,7 +20,7 @@ const textStyles = cva("text-base text-light-text dark:text-dark-text", {
   },
 });
 
-interface Props extends React.ComponentProps<typeof Text>, VariantProps<typeof textStyles> {}
+type Props = React.ComponentProps<typeof Text> & VariantProps<typeof textStyles>;
 
 export default function ThemedText({ children, className, variant, size, ...restProps }: Props) {
   const classNames = cn(textStyles({ variant, size }), className);
