@@ -20,7 +20,8 @@ export const textStyles = cva("text-base text-light-text dark:text-dark-text", {
   },
 });
 
-type Props = React.ComponentProps<typeof Text> & VariantProps<typeof textStyles>;
+export type TextVariants = VariantProps<typeof textStyles>;
+export type Props = React.ComponentProps<typeof Text> & TextVariants;
 
 export default function ThemedText({ children, className, variant, size, ...restProps }: Props) {
   const classNames = cn(textStyles({ variant, size }), className);
