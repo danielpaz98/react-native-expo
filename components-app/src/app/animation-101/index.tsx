@@ -10,7 +10,7 @@ export default function Animation101Screen() {
   return (
     <ThemedView className="m-2.5 flex-1 items-center justify-center gap-5">
       <Animated.View
-        className="bg-light-secondary dark:bg-dark-secondary rounded-xl size-[150px]"
+        className="bg-light-secondary dark:bg-dark-secondary rounded-xl size-36"
         style={{ opacity: animatedOpacity, transform: [{ translateY: animatedTop }] }}
       />
 
