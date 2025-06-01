@@ -16,7 +16,7 @@ interface Props extends React.ComponentProps<typeof Pressable> {
   isLast?: boolean;
 }
 
-const MenuItem = forwardRef<React.ElementRef<typeof Pressable>, Props>(
+const MenuItem = forwardRef<React.ComponentRef<typeof Pressable>, Props>(
   ({ children, className, icon, isFirst = false, isLast = false, ...restProps }, ref) => {
     const classNames = cn(
       "bg-white dark:bg-black/15 px-5 py-2",
