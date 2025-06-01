@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 // UTILS
 import { cn } from "@/utils";
 
-export const textStyles = cva("text-base text-light-text dark:text-dark-text", {
+export const textStyles = /* tw */ cva("text-base text-light-text dark:text-dark-text", {
   variants: {
     size: {
       h1: "text-3xl",
