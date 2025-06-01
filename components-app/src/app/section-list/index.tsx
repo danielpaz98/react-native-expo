@@ -2,7 +2,7 @@ import { SectionList } from "react-native";
 // COMPONENTS
 import { ThemedView, ThemedCard, ThemedText } from "@/components/shared";
 // DATA
-import { houses } from "./data";
+import { houses } from "@/data/section-list";
 
 export default function SectionListScreen() {
   return (
