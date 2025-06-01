@@ -1,10 +1,8 @@
-import { Text, Pressable } from "react-native";
+import { Pressable } from "react-native";
 // UTILS
 import { cn } from "@/utils";
 // COMPONENTS
-import { ThemedText } from "@/components/shared";
-// VARIANTS
-import { textStyles, type TextVariants } from "@/components/shared/ThemedText";
+import ThemedText, { textStyles, type TextVariants } from "./ThemedText";
 
 interface Props extends React.ComponentProps<typeof Pressable>, TextVariants {
   children?: React.ReactNode;
