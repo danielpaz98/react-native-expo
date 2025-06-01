@@ -2,9 +2,7 @@ import { Switch, Pressable, Platform, type SwitchProps } from "react-native";
 // UTILS
 import { cn } from "@/utils";
 // COMPONENTS
-import { ThemedText } from "@/components/shared";
-// VARIANTS
-import { textStyles, type TextVariants } from "@/components/shared/ThemedText";
+import ThemedText, { textStyles, type TextVariants } from "./ThemedText";
 // HOOKS
 import { useThemeColor } from "@/hooks/useThemeColor";
 
