@@ -38,10 +38,7 @@ export default function ThemedSwitch({
         value={value}
         onValueChange={onValueChange}
         thumbColor={isAndroid ? primaryColor : ""}
-        trackColor={{
-          false: "gray",
-          true: !isAndroid ? primaryColor : "",
-        }}
+        trackColor={{ false: "gray", true: !isAndroid ? primaryColor : "" }}
       />
     </Pressable>
   );
