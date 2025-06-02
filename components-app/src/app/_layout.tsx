@@ -22,7 +22,7 @@ export default function RootLayout() {
   const backgroundColor = useThemeColor({}, "background");
 
   const [loaded] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    SpaceMono: require("@/assets/fonts/SpaceMono-Regular.ttf"),
   });
 
   useEffect(() => {
@@ -44,7 +44,11 @@ export default function RootLayout() {
           <Stack.Screen name="index" options={{ title: "" }} />
 
           {allRoutes.map(({ name, title }) => (
-            <Stack.Screen key={name} name={name} options={{ title }} />
+            <Stack.Screen
+              key={name}
+              name={name}
+              options={{ title, headerShown: !title.includes("Slides") }}
+            />
           ))}
         </Stack>
       </ThemeProvider>
