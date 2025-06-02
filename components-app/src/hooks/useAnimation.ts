@@ -12,7 +12,7 @@ export const useAnimation = () => {
     easing = Easing.linear,
     callback = () => {},
   } = {}) => {
-    Animated.timing(animatedOpacity, { toValue, duration, useNativeDriver, easing }).start();
+    Animated.timing(animatedOpacity, { toValue, duration, useNativeDriver, easing }).start(callback);
   };
 
   const fadeOut = ({
