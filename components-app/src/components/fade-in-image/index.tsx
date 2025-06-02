@@ -1,15 +1,25 @@
 import { useState } from "react";
-import { View, ActivityIndicator, Animated } from "react-native";
+import { View, ActivityIndicator, Animated, type ImageProps } from "react-native";
 // UTILS
 import { cn } from "@/utils";
 // HOOKS
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useAnimation } from "@/hooks/useAnimation";
 
-type Props = React.ComponentProps<typeof View> &
-  Pick<React.ComponentProps<typeof Animated.Image>, "source" | "resizeMode">;
+interface Props extends React.ComponentProps<typeof View>, Pick<ImageProps, "source" | "resizeMode"> {
+  imageClassName?: string;
+  imageStyle?: ImageProps["style"];
+}
 
-export default function FadeInImage({ className, source, resizeMode = "contain", ...restProps }: Props) {
+export default function FadeInImage({
+  className,
+  imageClassName,
+  imageStyle,
+  source,
+  resizeMode = "contain",
+  ...restProps
+}: Props) {
+  const imageClassNames = cn("size-full", imageClassName);
   const classNames = cn(
     "aspect-[8/7] items-center justify-center mx-auto overflow-hidden",
     "border border-neutral-800 bg-neutral-900 rounded-xl shadow-sm",
@@ -36,10 +46,10 @@ export default function FadeInImage({ className, source, resizeMode = "contain",
       )}
       <Animated.Image
         source={source}
-        className="size-full"
+        className={imageClassNames}
         resizeMode={resizeMode}
         onLoadEnd={handleOnLoadEnd}
-        style={{ opacity: animatedOpacity }}
+        style={[{ opacity: animatedOpacity }, imageStyle]}
       />
     </View>
   );
