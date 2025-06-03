@@ -1,4 +1,4 @@
-import { Switch, Pressable, Platform, type SwitchProps } from "react-native";
+import { Switch, Pressable, Platform } from "react-native";
 // UTILS
 import { cn } from "@/utils";
 // COMPONENTS
@@ -6,14 +6,12 @@ import ThemedText, { textStyles, type TextVariants } from "./ThemedText";
 // HOOKS
 import { useThemeColor } from "@/hooks/useThemeColor";
 
-interface Props {
-  value?: SwitchProps["value"];
+interface Props extends React.ComponentProps<typeof Switch> {
   text?: string;
   className?: string;
   textClassName?: string;
   textVariant?: TextVariants["variant"];
   textSize?: TextVariants["size"];
-  onValueChange?: SwitchProps["onValueChange"];
 }
 
 const isAndroid = Platform.OS === "android";
