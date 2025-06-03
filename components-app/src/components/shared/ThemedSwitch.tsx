@@ -8,7 +8,6 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 
 interface Props extends React.ComponentProps<typeof Switch> {
   text?: string;
-  className?: string;
   textClassName?: string;
   textVariant?: TextVariants["variant"];
   textSize?: TextVariants["size"];
@@ -23,20 +22,25 @@ export default function ThemedSwitch({
   textClassName,
   textSize,
   textVariant,
+  disabled,
   onValueChange,
+  ...restProps
 }: Props) {
   const classNames = cn("flex flex-row items-center justify-end active:opacity-80", className);
   const textClassNames = cn("flex-1", textStyles({ variant: textVariant, size: textSize }), textClassName);
   const primaryColor = useThemeColor({}, "primary");
 
   return (
-    <Pressable className={classNames} onPress={() => onValueChange?.(!value)}>
+    <Pressable className={classNames} onPress={() => onValueChange?.(!value)} disabled={disabled}>
       {text && <ThemedText className={textClassNames}>{text}</ThemedText>}
       <Switch
         value={value}
         onValueChange={onValueChange}
         thumbColor={isAndroid ? primaryColor : ""}
         trackColor={{ false: "gray", true: !isAndroid ? primaryColor : "" }}
+        disabled={disabled}
+        className="disabled:opacity-50"
+        {...restProps}
       />
     </Pressable>
   );
