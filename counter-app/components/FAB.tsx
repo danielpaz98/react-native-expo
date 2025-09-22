@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Text, Pressable, StyleSheet, type StyleProp, type ViewStyle, type TextStyle } from 'react-native'
 
 interface Props extends React.ComponentProps<typeof Pressable> {
